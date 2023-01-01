@@ -27,20 +27,20 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ajT-Fa-f6m">
-                        <rect key="frame" x="0.0" y="0.0" width="215" height="94"/>
+                        <rect key="frame" x="32" y="0.0" width="183" height="94"/>
                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="ajT-Fa-f6m" firstAttribute="firstBaseline" secondItem="in1-ra-eTR" secondAttribute="firstBaseline" id="2D1-GT-riv"/>
-                    <constraint firstAttribute="bottom" secondItem="ajT-Fa-f6m" secondAttribute="bottom" id="86L-Jh-rhs"/>
-                    <constraint firstItem="in1-ra-eTR" firstAttribute="leading" secondItem="ajT-Fa-f6m" secondAttribute="trailing" constant="8" symbolic="YES" id="EQt-C5-GSD"/>
-                    <constraint firstItem="ajT-Fa-f6m" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="KZ9-G0-W2o"/>
-                    <constraint firstItem="ajT-Fa-f6m" firstAttribute="baseline" secondItem="in1-ra-eTR" secondAttribute="baseline" id="TIu-JB-gKi"/>
+                    <constraint firstItem="in1-ra-eTR" firstAttribute="leading" secondItem="ajT-Fa-f6m" secondAttribute="trailing" constant="8" symbolic="YES" id="3Co-3q-U5F"/>
+                    <constraint firstItem="ajT-Fa-f6m" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="16" id="9Ok-nz-BEX"/>
+                    <constraint firstItem="ajT-Fa-f6m" firstAttribute="baseline" secondItem="in1-ra-eTR" secondAttribute="baseline" id="AIf-YS-iQK"/>
+                    <constraint firstItem="ajT-Fa-f6m" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="DwF-Qu-oYa"/>
+                    <constraint firstItem="ajT-Fa-f6m" firstAttribute="firstBaseline" secondItem="in1-ra-eTR" secondAttribute="firstBaseline" id="foq-Rj-a1e"/>
                     <constraint firstAttribute="trailing" secondItem="in1-ra-eTR" secondAttribute="trailing" id="gpX-7p-tlo"/>
-                    <constraint firstItem="ajT-Fa-f6m" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="vGw-uj-Kst"/>
+                    <constraint firstAttribute="bottom" secondItem="ajT-Fa-f6m" secondAttribute="bottom" id="tlU-4Q-mcC"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

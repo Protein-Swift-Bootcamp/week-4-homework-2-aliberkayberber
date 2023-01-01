@@ -16,6 +16,7 @@
 		DDBFD4BD295F7B4900E5B9E4 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBFD4BC295F7B4900E5B9E4 /* EditViewController.swift */; };
 		DDBFD4C029608AD600E5B9E4 /* ProductCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBFD4BE29608AD600E5B9E4 /* ProductCellTableViewCell.swift */; };
 		DDBFD4C129608AD600E5B9E4 /* ProductCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDBFD4BF29608AD600E5B9E4 /* ProductCellTableViewCell.xib */; };
+		DDBFD4C32962072300E5B9E4 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBFD4C22962072300E5B9E4 /* Product.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		DDBFD4BC295F7B4900E5B9E4 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		DDBFD4BE29608AD600E5B9E4 /* ProductCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellTableViewCell.swift; sourceTree = "<group>"; };
 		DDBFD4BF29608AD600E5B9E4 /* ProductCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCellTableViewCell.xib; sourceTree = "<group>"; };
+		DDBFD4C22962072300E5B9E4 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		DDBFD4A7295F73BB00E5B9E4 /* Week4Homework */ = {
 			isa = PBXGroup;
 			children = (
+				DDBFD4C22962072300E5B9E4 /* Product.swift */,
 				DDBFD4A8295F73BB00E5B9E4 /* AppDelegate.swift */,
 				DDBFD4AA295F73BB00E5B9E4 /* SceneDelegate.swift */,
 				DDBFD4AC295F73BB00E5B9E4 /* ViewController.swift */,
@@ -153,6 +156,7 @@
 				DDBFD4C029608AD600E5B9E4 /* ProductCellTableViewCell.swift in Sources */,
 				DDBFD4A9295F73BB00E5B9E4 /* AppDelegate.swift in Sources */,
 				DDBFD4AB295F73BB00E5B9E4 /* SceneDelegate.swift in Sources */,
+				DDBFD4C32962072300E5B9E4 /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,13 +12,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    private var product: [Product] = [
-        .init(name: "Ring", stock: 50),
-        .init(name: "bracelet", stock: 25),
-        .init(name: "clasp", stock: 30),
-        .init(name: "earring", stock: 15),
-        .init(name: "necklace", stock: 26)
-    ]
+    private var product: [Product] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,16 +24,53 @@ class ViewController: UIViewController {
     }
     
     @IBAction func buttonClicked(_ sender: Any) {
+        
+        if let url = URL(string: "http://localhost:3000/product") {
+            var request: URLRequest = .init(url: url)
+            request.httpMethod = "GET"
+            
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                if error != nil {
+                    return
+                }
+                if let data = data {
+                    
+                    do {
+                       let product = try! JSONDecoder().decode([Product].self, from: data)
+                        self.product = product
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                        }
+                    } catch  {
+                        print("error")
+                    }
+                        
+                        
+                    
+                }
+            }
+            task.resume()
+        }
+        
+        /*
         let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
         if let vc = storyBoard.instantiateViewController(withIdentifier: "EditVC") as? UIViewController {
             vc.modalPresentationStyle = .fullScreen
             present(vc,animated: true)
         }
+        */
     }
     
 }
 
 extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let product = product[indexPath.row]
+        print("\(indexPath.row) - \(product.name ?? "")")
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
     
 }
 
@@ -56,7 +87,7 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProductCellTableViewCell", for: indexPath) as! ProductCellTableViewCell
         cell.itemNameLabel.text = product[indexPath.row].name
-        cell.stockLabel.text = String(product[indexPath.row].stock)
+        cell.stockLabel.text = product[indexPath.row].stock
         return cell
     }
 }
@@ -69,9 +100,4 @@ case ring
 case clasp
 }
 */
-struct Product {
-    
-    let name: String
-    let stock: Int
-    
-}
+
