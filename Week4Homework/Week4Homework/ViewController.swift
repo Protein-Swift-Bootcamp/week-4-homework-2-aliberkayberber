@@ -11,6 +11,7 @@ class ViewController: UIViewController {
 
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activtyIndicator: UIActivityIndicatorView!
     
     private var product: [Product] = []
     
@@ -21,9 +22,26 @@ class ViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(.init(nibName: "ProductCellTableViewCell", bundle: nil), forCellReuseIdentifier: "ProductCellTableViewCell")
+        fetchingData()
     }
     
-    @IBAction func buttonClicked(_ sender: Any) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        activtyIndicator.isHidden = false
+        activtyIndicator.startAnimating()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        do {
+            sleep(3)
+        }
+        
+        activtyIndicator.isHidden = true
+        activtyIndicator.stopAnimating()
+    }
+    
+    func fetchingData() {
         
         if let url = URL(string: "http://localhost:3000/product") {
             var request: URLRequest = .init(url: url)
@@ -44,21 +62,51 @@ class ViewController: UIViewController {
                     } catch  {
                         print("error")
                     }
-                        
-                        
-                    
                 }
             }
             task.resume()
         }
+    }
+    
+
+    
+    @IBAction func buttonClicked(_ sender: Any) {
         
-        /*
+        
+        if let url = URL(string: "http://localhost:3000/product") {
+            var request: URLRequest = .init(url: url)
+            request.httpMethod = "GET"
+            
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                if error != nil {
+                    return
+                }
+                if let data = data {
+                    
+                    do {
+                       let product = try! JSONDecoder().decode([Product].self, from: data)
+                        self.product = product
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                        }
+                    } catch  {
+                        print("error")
+                    }
+                }
+            }
+            task.resume()
+        }
+    }
+    
+    
+    @IBAction func newClicked(_ sender: Any) {
+        
         let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
         if let vc = storyBoard.instantiateViewController(withIdentifier: "EditVC") as? UIViewController {
             vc.modalPresentationStyle = .fullScreen
             present(vc,animated: true)
         }
-        */
+        
     }
     
 }
@@ -88,6 +136,7 @@ extension ViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProductCellTableViewCell", for: indexPath) as! ProductCellTableViewCell
         cell.itemNameLabel.text = product[indexPath.row].name
         cell.stockLabel.text = product[indexPath.row].stock
+        
         return cell
     }
 }
